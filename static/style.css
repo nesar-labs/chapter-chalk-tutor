@@ -26,7 +26,19 @@ body {
   align-items: center;
   padding: 32px 16px 64px;
 }
-
+.logo{
+  position: fixed;
+  top: clamp(10px, 2vw, 20px);
+  left: clamp(10px, 2vw, 20px);
+  width: clamp(28px, 6vw, 44px);
+  height: clamp(28px, 6vw, 44px);
+  border-radius: 10px;
+  object-fit: contain;
+  background: var(--board-dark);
+  border: 1px solid rgba(244,241,232,0.15);
+  padding: 5px;
+  z-index: 10;
+}
 .topbar {
   text-align: center;
   max-width: 480px;
