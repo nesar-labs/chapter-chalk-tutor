@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter Chalk — AI School Tutor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="chalk-mark">✎</div>
+    <h1>Chapter Chalk</h1>
+    <p class="tagline">Your chapter, on the board, ready for questions.</p>
+  </header>
+
+  <main class="board">
+
+    <section id="setup-panel" class="panel">
+      <h2>Set up your chapter</h2>
+      <p class="hint">Tell me your class, subject and chapter — I'll pull it up and we can talk it through.</p>
+
+      <form id="setup-form">
+        <label>
+          Class
+          <input type="text" id="student_class" placeholder="e.g. Class-8" required>
+        </label>
+        <label>
+          Subject
+          <input type="text" id="subject" placeholder="Science, Maths, English, Social-science" required>
+        </label>
+        <label>
+          Chapter
+          <input type="text" id="chapter" placeholder="e.g. Chapter-1" required>
+        </label>
+        <button type="submit" id="start-btn">Open chapter</button>
+      </form>
+
+      <p id="setup-status" class="status" aria-live="polite"></p>
+    </section>
+
+    <section id="chat-panel" class="panel hidden">
+      <div class="chat-heading">
+        <h2 id="chat-title">Tutor</h2>
+        <button id="new-chapter-btn" class="ghost-btn" type="button">New chapter</button>
+      </div>
+
+      <div id="messages" class="messages" aria-live="polite"></div>
+
+      <form id="chat-form">
+        <input type="text" id="message-input" placeholder="Ask something about the chapter…" autocomplete="off" required>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
