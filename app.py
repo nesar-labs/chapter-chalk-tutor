@@ -107,6 +107,11 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/robots.txt")
+def robots():
+    return app.send_static_file("robots.txt")
+
+
 @app.route("/api/start", methods=["POST"])
 def start_session():
     data = request.get_json(force=True) or {}
@@ -193,4 +198,4 @@ def chat_message():
 if __name__ == "__main__":
     debug = os.environ.get("FLASK_DEBUG", "false").lower() == "true"
     port = int(os.environ.get("PORT", 5000))
-    app.run(debug=debug, port=port)
+    app.run(host="0.0.0.0", debug=debug, port=port)
