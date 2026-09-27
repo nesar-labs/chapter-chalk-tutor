@@ -102,14 +102,15 @@ def markdown_bold_to_html(text):
 
 
 # --- Routes -------------------------------------------------------------
-@app.route("/")
-def index():
-    return render_template("index.html")
 
-
+from flask import send_from_directory
 @app.route("/robots.txt")
 def robots():
-    return app.send_static_file("robots.txt")
+    return send_from_directory(os.getcwd(), "robots.txt")
+
+@app.route("/google93c857c856a29fa3.html")
+def google_verify():
+    return send_from_directory(os.getcwd(), "google93c857c856a29fa3.html")
 
 
 @app.route("/api/start", methods=["POST"])
