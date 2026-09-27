@@ -3,7 +3,7 @@ import re
 import uuid
 import requests
 
-from flask import Flask, request, jsonify, session, render_template
+from flask import Flask, request, jsonify, session, render_template, send_from_directory
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
@@ -102,11 +102,15 @@ def markdown_bold_to_html(text):
 
 
 # --- Routes -------------------------------------------------------------
+@app.route("/")
+def index():
+    return render_template("index.html")
 
-from flask import send_from_directory
+
 @app.route("/robots.txt")
 def robots():
     return send_from_directory(os.getcwd(), "robots.txt")
+
 
 @app.route("/google93c857c856a29fa3.html")
 def google_verify():
